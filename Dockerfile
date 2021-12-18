@@ -1,13 +1,13 @@
 FROM python:3
 
-WORKDIR /usr/src/app
+WORKDIR /myproject
 
-COPY requirements.txt .
+COPY . .
 
 RUN pip install -r requirements.txt
 
-COPY hello.py .
-
 EXPOSE 5000
 
-CMD python hello.py
+ENV FLASK_DEBUG = TRUE
+
+CMD python flask-hello.py
